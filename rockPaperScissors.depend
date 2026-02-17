@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1770809294 source:d:\thong\lap_trinh\rockpaperscissors\rockpaperscissors\main.cpp
+	<iostream>
+	<conio.h>
+	<cstdlib>
+	<windows.h>
+	<cstdlib>
+	<fstream>
+	<ctime>
+
+1770521051 source:g:\other computers\my laptop\thong\lap_trinh\rockpaperscissors\rockpaperscissors\main.cpp
+	<windows.h>
+	<iostream>
+
+1770691970 source:d:\thong\lap_trinh\rockpaperscissors\rockpaperscissors\test.cpp
+	<iostream>
+	<conio.h>
+
