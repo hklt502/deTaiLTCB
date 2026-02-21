@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1770809294 source:d:\thong\lap_trinh\rockpaperscissors\rockpaperscissors\main.cpp
+1771644066 source:d:\thong\lap_trinh\rockpaperscissors\rockpaperscissors\main.cpp
 	<iostream>
 	<conio.h>
 	<cstdlib>
+	<cctype>
 	<windows.h>
-	<cstdlib>
-	<fstream>
+	<string>
 	<ctime>
 
 1770521051 source:g:\other computers\my laptop\thong\lap_trinh\rockpaperscissors\rockpaperscissors\main.cpp

@@ -10,7 +10,9 @@ using namespace std;
 // Menu
 void menu();
 void playWithComputer();
-void playWithPlayer();
+void playWithPlayerNormalMode();
+void playWithPlayerSpeedMode();
+void gameInstructions();
 
 // Input
 int getPlayerChoice();
@@ -62,7 +64,9 @@ void menu() {
         colorGreen();
         cout << "  +----------------------------------------+\n";
         cout << "  |    [1] Play with computer              |\n";
-        cout << "  |    [2] Play with another player        |\n";
+        cout << "  |    [2] Play with another player(Normal)|\n";
+        cout << "  |    [3] Play with another player(Speed) |\n";
+        cout << "  |    [9] Game instructions               |\n";
         cout << "  |    [0] Exit                            |\n";
         cout << "  +----------------------------------------+\n";
         colorYellow();
@@ -75,9 +79,17 @@ void menu() {
         }
         else if (choice == '2'){
             system("cls");
-            playWithPlayer();
+            playWithPlayerNormalMode();
         }
-    system("cls");
+        else if (choice == '3'){
+            system("cls");
+            playWithPlayerSpeedMode();
+        }
+        else if (choice == '9'){
+            system("cls");
+            gameInstructions();
+        }
+        system("cls");
     } while (choice != '0');
 
 }
@@ -109,8 +121,8 @@ int getPlayerChoice1() {
         colorDefault();
         c = _getch();
         if(c < '7' || c > '9'){
-                cout << "\33[1A\33[2K\r";
-                cout << "\33[0A\33[2K\r";
+            cout << "\33[1A\33[2K\r";
+            cout << "\33[0A\33[2K\r";
         }
     } while (c < '7' || c > '9');
     colorRed();
@@ -131,7 +143,7 @@ int getResult(int a, int b) {
     if ((a == 1 && b == 9) ||
         (a == 2 && b == 7) ||
         (a == 3 && b == 8))
-        return 1; // Player wins
+        return 1; // Player 1 wins
 
     return 2; // Computer / Player 2 wins
 }
@@ -141,13 +153,64 @@ void updateScore(int result) {
     else if (result == 2) computerScore++;
 }
 
-void playWithPlayer() {
+void playWithComputer() {
+    string items[3] = {"Rock", "Paper", "Scissors"};
+    char exitKey;
+    do {
+        colorRed();
+        cout << "  +------------------------------------------+\n";
+        cout << "  |            PLAY WITH COMPUTER            |\n";
+        cout << "  +------------------------------------------+\n";
+        colorGreen();
+        cout << "  |       [1]Rock [2]Paper [3]Scissors       |\n";
+        cout << "  +------------------------------------------+\n";
+        colorDefault();
+        cout << "     (\\___/)              ___!___\n";
+        cout << "     ( '- ')              [A~ I ]\n";
+        cout << "     (\")__(\")             />____<\\\n";
+        colorBlue();
+        cout << "  +----------------- SCORE ------------------+\n";
+        colorGreen();
+        cout<< "  |     You: " << playerScore << "             ";
+        colorRed();
+        cout<< "Computer: " << computerScore;
+        colorBlue();
+        cout << "       |\n  +------------------------------------------+\n";
+        colorDefault();
+        int playerChoice = getPlayerChoice();
+        int computerChoice = getComputerChoice();
+        int result = getResult(playerChoice, computerChoice);
+        updateScore(result);
+        computerThinking();
+        colorGreen();
+        cout << "\n  " << items[playerChoice - 1];
+        colorDefault();
+        cout << "   vs   ";
+        colorRed();
+        cout<< items[computerChoice - 7] << endl << endl;
+        colorDefault();
+        printTwoIcons(playerChoice, computerChoice - 6);
+        cout << "  +------------------------------------------+\n";
+        if (result == 0) { colorYellow(); cout << "  |          Result: Draw                    |\n"; }
+        else if (result == 1) { colorGreen(); cout << "  |          Result: You win!                |\n"; }
+        else { colorRed(); cout << "  |          Result: Computer wins!          |\n"; }
+        colorDefault();
+        cout << "  +------------------------------------------+\n";
+        cout << "  |   Press Y to exit, any key to continue.  |\n";
+        cout << "  +------------------------------------------+\n";
+        exitKey = tolower(_getch());
+        system("cls");
+    } while (exitKey != 'y');
+}
+
+void playWithPlayerNormalMode() {
     char exitKey;
     string items[3] = {"Rock", "Paper", "Scissors"};
     do {
         colorYellow();
         cout<< "  +------------------------------------------+\n";
         cout<< "  |         PLAY WITH ANOTHER PLAYER         |\n";
+        cout<< "  |         ******NORMAL  MODE******         |\n";
         cout<< "  +------------------------------------------+\n";
         colorGreen();
         cout<< "  | P1: [1]Rock [2]Paper [3]Scissors         |\n";
@@ -158,10 +221,13 @@ void playWithPlayer() {
         cout << "     (\\___/)              (\\___/)\n";
         cout << "     ( '- ')              (*- * )\n";
         cout << "     (\")__(\")            (\\____/)\n";
+
         int player1 = getPlayerChoice();
         int player2 = getPlayerChoice1();
         int result = getResult(player1, player2);
+
         countdown();
+
         colorGreen();
         cout<< "\n    " << items[player1 - 1];
         colorDefault();
@@ -183,54 +249,131 @@ void playWithPlayer() {
     } while (exitKey != 'y');
 }
 
-void playWithComputer() {
-    string items[3] = {"Rock", "Paper", "Scissors"};
+void playWithPlayerSpeedMode() {
     char exitKey;
+    string items[3] = {"Rock", "Paper", "Scissors"};
     do {
-        colorRed();
-        cout << "  +------------------------------------------+\n";
-        cout << "  |            PLAY WITH COMPUTER            |\n";
-        cout << "  +------------------------------------------+\n";
+        int i = 0, choiceP1 = 0, choiceP2 = 0, result;
+        colorYellow();
+        cout<< "  +------------------------------------------+\n";
+        cout<< "  |         PLAY WITH ANOTHER PLAYER         |\n";
+        cout<< "  |         ******(SPEED MODE)******         |\n";
+        cout<< "  +------------------------------------------+\n";
         colorGreen();
-        cout << "  |       [1]Rock [2]Paper [3]Scissors       |\n";
-        cout << "  +------------------------------------------+\n";
-        colorDefault();
-        cout << "     (\\___/)              ___!___\n";
-        cout << "     ( '- ')              [A~ I ]\n";
-        cout << "     (\")__(\")             />____<\\\n";
-        colorBlue();
-        cout << "  +---------------- SCORE ----------------+\n";
-        colorGreen();
-        cout<< "  |     You: " << playerScore << "             ";
+        cout<< "  | P1: [1]Rock [2]Paper [3]Scissors         |\n";
         colorRed();
-        cout<< "Computer: " << computerScore;
-        colorBlue();
-        cout << "  |\n  +------------------------------------------+\n";
+        cout<< "  | P2: [7]Rock [8]Paper [9]Scissors         |\n";
+        cout<< "  +------------------------------------------+\n";
         colorDefault();
-        int playerChoice = getPlayerChoice();
-        int computerChoice = getComputerChoice();
-        int result = getResult(playerChoice, computerChoice);
-        updateScore(result);
-        computerThinking();
+        cout << "     (\\___/)              (\\___/)\n";
+        cout << "     ( '- ')              (*- * )\n";
+        cout << "     (\")__(\")            (\\____/)\n";
+
+        while(i <= 100){
+            switch(i){
+                 case 5: cout<< " 1__...";break;
+                 case 50: cout<< "2__...";break;
+                 case 95: cout<< "3__....\n";break;
+            }
+            if (_kbhit()) {
+                int temp = _getch();
+
+                if(temp >= '1' && temp <= '3' && choiceP1 == 0)
+                    choiceP1 = temp - '0';
+
+                if(temp >= '7' && temp <= '9' && choiceP2 == 0)
+                    choiceP2 = temp - '0';
+            }
+            Sleep(20);
+            i++;
+        }
+        if(choiceP1 == 0 && choiceP2 == 0){
+            result = 0;
+            cout << "  +------------------------------------------+\n";
+            colorYellow();
+            cout << "  |           Result: Draw                   |\n";
+            colorDefault();
+            cout << "  +------------------------------------------+\n";
+        }
+        if(choiceP1 != 0 && choiceP2 == 0){
+            result = 1;
+            cout << "  +------------------------------------------+\n";
+            colorGreen();
+            cout << "  |           Result: Player 1 wins!         |\n";
+            colorDefault();
+            cout << "  +------------------------------------------+\n";
+        }
+        if(choiceP1 == 0 && choiceP2 != 0){
+            result = 2;
+            cout << "  +------------------------------------------+\n";
+            colorRed();
+            cout << "  |           Result: Player 2 wins!         |\n";
+            colorDefault();
+            cout << "  +------------------------------------------+\n";
+        }
+        if(choiceP1 != 0 && choiceP2 != 0){
+        result = getResult(choiceP1, choiceP2);
+
+        countdown();
+
         colorGreen();
-        cout << "\n  " << items[playerChoice - 1];
+        cout<< "\n    " << items[choiceP1 - 1];
         colorDefault();
-        cout << "   vs   ";
+        cout<< "   vs   ";
         colorRed();
-        cout<< items[computerChoice - 7] << endl << endl;
+        cout<< items[choiceP2 - 7] << endl << endl;
         colorDefault();
-        printTwoIcons(playerChoice, computerChoice - 6);
+        printTwoIcons(choiceP1, choiceP2 - 6);
         cout << "  +------------------------------------------+\n";
-        if (result == 0) { colorYellow(); cout << "  |          Result: Draw                    |\n"; }
-        else if (result == 1) { colorGreen(); cout << "  |          Result: You win!               |\n"; }
-        else { colorRed(); cout << "  |          Result: Computer wins!          |\n"; }
+        if (result == 0) { colorYellow(); cout << "  |           Result: Draw                   |\n"; }
+        else if (result == 1) { colorGreen(); cout << "  |           Result: Player 1 wins!         |\n"; }
+        else { colorRed(); cout << "  |           Result: Player 2 wins!         |\n"; }
         colorDefault();
+        }
         cout << "  +------------------------------------------+\n";
         cout << "  |   Press Y to exit, any key to continue.  |\n";
         cout << "  +------------------------------------------+\n";
         exitKey = tolower(_getch());
         system("cls");
     } while (exitKey != 'y');
+}
+
+void gameInstructions(){
+    char exitKey ;
+    do{
+        colorBlue();
+        cout << "  +--------------------------------------------------+\n";
+        cout << "  |                  GAME INSTRUCTIONS               |\n";
+        cout << "  +--------------------------------------------------+\n";
+        colorYellow();
+        cout << "  |          ROCK - PAPER - SCISSORS RULES:          |\n";
+        colorGreen();
+        cout << "  |          Rock        beats      Scissors         |\n";
+        cout << "  |          Scissors    beats      Paper            |\n";
+        cout << "  |          Paper       beats      Rock             |\n";
+        colorBlue();
+        cout << "  +--------------------------------------------------+\n";
+        colorYellow();
+        cout << "  |  GAME MODES:                                     |\n";
+        colorGreen();
+        cout << "  |  [1] Play with Computer                          |\n";
+        cout << "  |  [2] Play with Another Player (Normal Mode)      |\n";
+        cout << "  |      Player 1: 1-3   |   Player 2: 7-9           |\n";
+        colorRed();
+        cout << "  |  [3] Play with Another Player (Speed Mode)       |\n";
+        cout << "  |      *Fast reaction decides the winner*          |\n";
+        cout << "  |      Player 1: 1-3   |   Player 2: 7-9           |\n";
+        colorBlue();
+        cout << "  +--------------------------------------------------+\n";
+        colorGreen();
+        cout << "  |   Press Y to return to the main menu.            |\n";
+        cout << "  +--------------------------------------------------+\n";
+        colorDefault();
+
+        exitKey = _getch();
+        system("cls");
+    }while(exitKey != 'y');
+    system("cls");
 }
 
 //text color
@@ -266,22 +409,23 @@ void countdown() {
 
 void computerThinking() {
     colorBlue();
-    cout << "\n  +------------------------------------------+\n  | Computer thinking";
+    cout << "\n  +------------------------------------------+\n";
+    cout<<"  | Computer thinking";
     for (int i = 0; i < 5; i++) { cout << "."; Sleep(200); }
-    cout<< " Done!           |\n";
-    cout<< " +------------------------------------------+\n";
+    cout<< " Done!             |\n";
+    cout<< "  +------------------------------------------+\n";
     colorDefault();
 }
 
 void printTwoIcons(int a, int b) {
     string icon1[6], icon2[6];
     if (a == 1) {
-        icon1[0] = "  _________  ";
-        icon1[1] = "  //00O0O00O\\ ";
+        icon1[0] = "  _________     ";
+        icon1[1] = "  //00O0O00O\\    ";
         icon1[2] = "  //09O00O09O0\\\\";
         icon1[3] = " \\9080O600O0O// ";
-        icon1[4] = " \\9080OO809//  ";
-        icon1[5] = "   \\9080OO80/  ";
+        icon1[4] = " \\9080OO809//   ";
+        icon1[5] = "   \\9080OO80/   ";
     }
     else if (a == 2) {
         icon1[0] = " __   __   ";
