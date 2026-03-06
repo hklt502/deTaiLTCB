@@ -27,7 +27,7 @@ void updateScore(int result);
 int playerScore = 0;
 int computerScore = 0;
 
-//text color
+//text color7
 void colorRed();
 void colorBlue();
 void colorGreen();
@@ -93,45 +93,59 @@ void menu() {
     } while (choice != '0');
 
 }
-
 int getPlayerChoice() {
     char c;
-    do {
-        colorGreen();
-        cout << "\n  +------------------+\n  | Choose player 1: ";
-        colorDefault();
-        c = _getch();
-        if(c < '1' || c > '3'){
-            cout << "\33[1A\33[2K\r";
-            cout << "\33[0A\33[2K\r";
-        }
-    } while (c < '1' || c > '3');
+
     colorGreen();
-    cout<< " |\n";
-    cout<<"  +------------------+\n";
+    cout << "\n  +------------------------------------------+\n";
+    cout << "  | Choose player 1: ";
     colorDefault();
+
+    do {
+        c = _getch();
+
+        if (c < '1' || c > '3') {
+            cout << "\r  | Choose player 1 (1-3): ";
+        }
+
+    } while (c < '1' || c > '3');
+
+    cout << c;
+
+    colorGreen();
+    cout << "\n";
+    cout << "  +------------------------------------------+\n";
+    colorDefault();
+
     return c - '0';
 }
 
 int getPlayerChoice1() {
     char c;
-    do {
-        colorRed();
-        cout << "\n  +------------------+\n  | Choose player 2: ";
-        colorDefault();
-        c = _getch();
-        if(c < '7' || c > '9'){
-            cout << "\33[1A\33[2K\r";
-            cout << "\33[0A\33[2K\r";
-        }
-    } while (c < '7' || c > '9');
+
     colorRed();
-    cout<< " |\n";
-    cout<< "  +------------------+\n";
+    cout << "\n  +------------------------------------------+\n";
+    cout << "  | Choose player 2: ";
     colorDefault();
+
+    do {
+        c = _getch();
+
+        if (c < '7' || c > '9') {
+            cout << "\r  | Choose player 2 (7-9): ";
+        }
+
+    } while (c < '7' || c > '9');
+
+    cout << c;
+
+    colorRed();
+    cout << "\n";
+    cout << "  +------------------------------------------+\n";
+    colorDefault();
+
     return c - '0';
 }
-
 
 int getComputerChoice() {
     return (rand() % 3 + 1) + 6; // choice 6–9
@@ -268,7 +282,7 @@ void playWithPlayerSpeedMode() {
         cout << "     (\\___/)              (\\___/)\n";
         cout << "     ( '- ')              (*- * )\n";
         cout << "     (\")__(\")            (\\____/)\n";
-
+        cout<< "  +------------------------------------------+\n";
         while(i <= 100){
             switch(i){
                  case 5: cout<< " 1__...";break;
@@ -287,6 +301,7 @@ void playWithPlayerSpeedMode() {
             Sleep(20);
             i++;
         }
+        cout<< "  +------------------------------------------+\n";
         if(choiceP1 == 0 && choiceP2 == 0){
             result = 0;
             cout << "  +------------------------------------------+\n";
@@ -398,13 +413,13 @@ void colorDefault() {
 }
 
 void countdown() {
-    cout<< "  +-------------------------+\n";
-    colorRed();   cout << "  [3]..."; Sleep(200);
+    cout<< "  +------------------------------------------+\n";
+    colorRed();   cout << "            [3]..."; Sleep(200);
     colorYellow(); cout << " [2]..."; Sleep(200);
     colorGreen();  cout << " [1]...";
     cout<< " GO!\n"; Sleep(250);
     colorDefault();
-    cout<< "  +-------------------------+\n";
+    cout<< "  +------------------------------------------+\n";
 }
 
 void computerThinking() {
