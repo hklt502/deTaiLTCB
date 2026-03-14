@@ -27,7 +27,7 @@ void updateScore(int result);
 int playerScore = 0;
 int computerScore = 0;
 
-//text color7
+//text color
 void colorRed();
 void colorBlue();
 void colorGreen();
@@ -41,8 +41,150 @@ void computerThinking();
 //icon
 void printTwoIcons(int a, int b);
 
+//language
+void chooseLanguage();
+
+//create datatype
+enum Language {
+    VIETNAMESE,
+    ENGLISH
+};
+
+Language currentLang = ENGLISH;
+
+struct GameText {
+    string tieuDeKeoBuaBao;
+    string luaChon;
+    string nguoiChoi1;
+    string nguoiChoi2;
+    string choiVoiMay;
+    string luaChonKeoBuaBao;
+    string hoa;
+    string banThang;
+    string mayTinhThang;
+    string thoatHoacTiepTuc;
+    string choiVoiNguoiKhac;
+    string cheDoThuong;
+    string luaChonCuaNguoiChoi1;
+    string luaChonCuaNguoiChoi2;
+    string cheDoTangToc;
+    string huongDanChoiGame;
+    string quyTacChoi;
+    string daThangKeo;
+    string keoThangGiay;
+    string giayThangDa;
+    string cheDoChoi;
+    string nguoiChoi1Tu1Den3NguoiChoi2Tu7Den9Thuong;
+    string phanXaNhanhQuyetDinhChienThang;
+    string nhanPhimYDeQuayLai;
+    string cheDoChoiCungMayTinh;
+    string cheDoChoiCungNguoiKhacCheDoThuong;
+    string cheDoChoiCungNguoiKhacCheDoTangToc;
+    string nguoiChoi1Tu1Den3NguoiChoi2Tu7Den9TangToc;
+    string ketQuaHoa;
+    string ketQuaNguoi1Thang;
+    string ketQuaNguoi2Thang;
+    string ban;
+    string mayTinh;
+    string mayTinhSuyNghi;
+    string xong;
+
+};
+//
+GameText langVI = {
+    "  |       * DA       GIAY      KEO *       |\n",//1
+    "  |   [1] Choi Voi May                     |\n"
+    "  |   [2] Choi Voi Nguoi (Binh Thuong)     |\n"
+    "  |   [3] Choi Voi Nguoi(Tang Toc)         |\n"
+    "  |   [8] Doi Ngon Ngu                     |\n"
+    "  |   [9] Huong Dan Choi                   |\n"
+    "  |   [0] Thoat                            |\n",//2
+    "  |   Nguoi choi So 1                        |",//3
+    "  |   Nguoi choi So 2                        |",//4
+    "  |   CHOI VOI MAY                           |\n",//5
+    "  |      [1] DA [2] GIAY [3] KEO             |\n",//6
+    "  |         KET QUA: HOA                     |\n",//7
+    "  |         KET QUA: BAN THANG               |\n",//8
+    "  |         KET QUA: MAY TINH THANG          |\n",//9
+    "  |Nhan Phim Y De Thoat, Bat Ki De Tiep Tuc  |\n",//10
+    "  |        Choi Voi Nguoi Choi Khac          |\n",//11
+    "  |        ******Che Do Thuong******         |\n",//12
+    "  | Nguoi Choi 1: [1]DA [2]GIAY [3]KEO       |\n",//13
+    "  | Nguoi Choi 2: [7]DA [8]GIAY [9]KEO       |\n",//14
+    "  |        ******Che Do Tang Toc******       |\n",//15
+    "  |            HUONG DAN CHOI GAME                   |\n",//16
+    "  |        QUY TAC CHOI DA - GIAY - KEO:             |\n",//17
+    "  |          DA       Thang      KEO                 |\n",//18
+    "  |          KEO      Thang      GIAY                |\n",//19
+    "  |          GIAY     Thang      DA                  |\n",//20
+    "  |  CHE DO CHOI:                                    |\n",//21
+    "  |   Nguoi Choi 1: 1-3  |  Nguoi Choi 2: 7-9        |\n",//22
+    "  |  *Phan Xa Nhanh Quyet Dinh Chien Thang*          |\n",//23
+    "  |   Nhan Phim Y De Quay Lai Menu Chinh.            |\n",
+    "  |  [1] Choi Cung May Tinh                          |\n",
+    "  |  [2] Choi Cung Nguoi Khac (Che Do Thuong)        |\n",
+    "  |  [3] Choi Cung Nguoi Khac (Che Do Tang Toc)      |\n",
+    "  |   Nguoi Choi 1: 1-3  |  Nguoi Choi 2: 7-9        |\n",
+    "  |         KET QUA: HOA                     |\n",
+    "  |         KET QUA: NGUOI CHOI 1 THANG      |\n",
+    "  |         KET QUA: NGUOI CHOI 2 THANG      |\n",
+    "  |     Ban: " ,
+    " May Tinh: " ,
+    "  | May Tinh Suy Nghi",
+    " Xong             |\n",
+
+};
+
+GameText langEN = {
+    "  |        * ROCK  PAPER  SCISSORS *       |\n",
+    "  |    [1] Play with computer              |\n"
+    "  |    [2] Play with another player(Normal)|\n"
+    "  |    [3] Play with another player(Speed) |\n"
+    "  |    [8] Choose Language                 |\n"
+    "  |    [9] Game instructions               |\n"
+    "  |    [0] Exit                            |\n",
+    "  |    Player 1                              |",
+    "  |    Player 2                              |",
+    "  |    PLAY WITH COMPUTER                    |\n",
+    "  |    [1]Rock [2]Paper [3]Scissors          |\n",
+    "  |          Result: Draw                    |\n",
+    "  |          Result: You Win                 |\n",
+    "  |          Result: Computer Win            |\n",
+    "  |   Press Y to exit, any key to continue.  |\n",
+    "  |         PLAY WITH ANOTHER PLAYER         |\n",
+    "  |         ******NORMAL MODE******          |\n",
+    "  | PLAYER 1: [1]Rock [2]Paper [3]Scissors   |\n",
+    "  | PLAYER 2: [7]Rock [8]Paper [9]Scissors   |\n",
+    "  |         ******SPEED MODE******           |\n",
+    "  |            GAME INSTRUCTIONS                     |\n",
+    "  |        ROCK - PAPER - SCISSORS RULES:            |\n",
+    "  |         Rock        beats      Scissors          |\n",
+    "  |         Scissors    beats      Paper             |\n",
+    "  |         Paper       beats      Rock              |\n",
+    "  |  GAME MODES:                                     |\n",
+    "  |      Player 1: 1-3   |   Player 2: 7-9           |\n",
+    "  |      *Fast reaction decides the winner*          |\n",
+    "  |   Press Y to return to the main menu.            |\n",
+    "  |  [1] Play with Computer                          |\n",
+    "  |  [2] Play with Another Player (Normal Mode)      |\n",
+    "  |  [3] Play with Another Player (Speed Mode)       |\n",
+    "  |      Player 1: 1-3   |   Player 2: 7-9           |\n",
+    "  |          Result: Draw                    |\n",
+    "  |          Result: Player 1 wins!          |\n",
+    "  |          Result: Player 2 wins!          |\n",
+    "  |     You: ",
+    " Computer: ",
+    "  | Computer thinking",
+    " Done!             |\n",
+
+};
+
+
+GameText *text;
+
 int main() {
     srand(time(NULL));// initialize the seed
+    text = &langEN;
     menu();
     return 0;
 }
@@ -60,17 +202,13 @@ void menu() {
         cout << "  | (@@@@@@)     \\\\9080OO80/    /_| |_\\    |\n";
         cout << "  +----------------------------------------+\n";
         colorRed();
-        cout << "  |        * ROCK  PAPER  SCISSORS *       |\n";
+        cout << text->tieuDeKeoBuaBao;
         colorGreen();
         cout << "  +----------------------------------------+\n";
-        cout << "  |    [1] Play with computer              |\n";
-        cout << "  |    [2] Play with another player(Normal)|\n";
-        cout << "  |    [3] Play with another player(Speed) |\n";
-        cout << "  |    [9] Game instructions               |\n";
-        cout << "  |    [0] Exit                            |\n";
+        cout << text->luaChon;
         cout << "  +----------------------------------------+\n";
         colorYellow();
-        cout << "  Choose: ";
+
         cin >> choice;
         colorDefault();
         if (choice == '1'){
@@ -85,6 +223,10 @@ void menu() {
             system("cls");
             playWithPlayerSpeedMode();
         }
+        else if (choice == '8'){
+            system("cls");
+            chooseLanguage();
+        }
         else if (choice == '9'){
             system("cls");
             gameInstructions();
@@ -93,24 +235,25 @@ void menu() {
     } while (choice != '0');
 
 }
+
 int getPlayerChoice() {
     char c;
 
     colorGreen();
     cout << "\n  +------------------------------------------+\n";
-    cout << "  | Choose player 1: ";
+    cout << text->nguoiChoi1;
     colorDefault();
 
     do {
         c = _getch();
 
         if (c < '1' || c > '3') {
-            cout << "\r  | Choose player 1 (1-3): ";
+            colorGreen();
+            cout << "\r" << text->nguoiChoi1;
+            colorDefault();
         }
 
     } while (c < '1' || c > '3');
-
-    cout << c;
 
     colorGreen();
     cout << "\n";
@@ -125,19 +268,18 @@ int getPlayerChoice1() {
 
     colorRed();
     cout << "\n  +------------------------------------------+\n";
-    cout << "  | Choose player 2: ";
+    cout << text-> nguoiChoi2;
+
     colorDefault();
 
     do {
         c = _getch();
 
         if (c < '7' || c > '9') {
-            cout << "\r  | Choose player 2 (7-9): ";
+            cout << "\r"<< text-> nguoiChoi2;
         }
 
     } while (c < '7' || c > '9');
-
-    cout << c;
 
     colorRed();
     cout << "\n";
@@ -173,10 +315,10 @@ void playWithComputer() {
     do {
         colorRed();
         cout << "  +------------------------------------------+\n";
-        cout << "  |            PLAY WITH COMPUTER            |\n";
+        cout << text->choiVoiMay;
         cout << "  +------------------------------------------+\n";
         colorGreen();
-        cout << "  |       [1]Rock [2]Paper [3]Scissors       |\n";
+        cout << text->luaChonKeoBuaBao;
         cout << "  +------------------------------------------+\n";
         colorDefault();
         cout << "     (\\___/)              ___!___\n";
@@ -185,9 +327,9 @@ void playWithComputer() {
         colorBlue();
         cout << "  +----------------- SCORE ------------------+\n";
         colorGreen();
-        cout<< "  |     You: " << playerScore << "             ";
+        cout << text->ban<< playerScore << "             ";
         colorRed();
-        cout<< "Computer: " << computerScore;
+        cout << text->mayTinh<< computerScore;
         colorBlue();
         cout << "       |\n  +------------------------------------------+\n";
         colorDefault();
@@ -205,12 +347,12 @@ void playWithComputer() {
         colorDefault();
         printTwoIcons(playerChoice, computerChoice - 6);
         cout << "  +------------------------------------------+\n";
-        if (result == 0) { colorYellow(); cout << "  |          Result: Draw                    |\n"; }
-        else if (result == 1) { colorGreen(); cout << "  |          Result: You win!                |\n"; }
-        else { colorRed(); cout << "  |          Result: Computer wins!          |\n"; }
+        if (result == 0) { colorYellow(); cout << text->hoa; }
+        else if (result == 1) { colorGreen(); cout << text->banThang; }
+        else { colorRed(); cout << text->mayTinhThang; }
         colorDefault();
         cout << "  +------------------------------------------+\n";
-        cout << "  |   Press Y to exit, any key to continue.  |\n";
+        cout << text->thoatHoacTiepTuc;
         cout << "  +------------------------------------------+\n";
         exitKey = tolower(_getch());
         system("cls");
@@ -223,13 +365,13 @@ void playWithPlayerNormalMode() {
     do {
         colorYellow();
         cout<< "  +------------------------------------------+\n";
-        cout<< "  |         PLAY WITH ANOTHER PLAYER         |\n";
-        cout<< "  |         ******NORMAL  MODE******         |\n";
+        cout << text->choiVoiNguoiKhac;
+        cout << text->cheDoThuong;
         cout<< "  +------------------------------------------+\n";
         colorGreen();
-        cout<< "  | P1: [1]Rock [2]Paper [3]Scissors         |\n";
+        cout << text->luaChonCuaNguoiChoi1;
         colorRed();
-        cout<< "  | P2: [7]Rock [8]Paper [9]Scissors         |\n";
+        cout << text->luaChonCuaNguoiChoi2;
         cout<< "  +------------------------------------------+\n";
         colorDefault();
         cout << "     (\\___/)              (\\___/)\n";
@@ -251,12 +393,12 @@ void playWithPlayerNormalMode() {
         colorDefault();
         printTwoIcons(player1, player2 - 6);
         cout << "  +------------------------------------------+\n";
-        if (result == 0) { colorYellow(); cout << "  |           Result: Draw                    |\n"; }
-        else if (result == 1) { colorGreen(); cout << "  | Result: Player 1 wins!          |\n"; }
-        else { colorRed(); cout << "  | Result: Player 2 wins!          |\n"; }
+        if (result == 0) { colorYellow(); cout << text->ketQuaHoa; }
+        else if (result == 1) { colorGreen(); cout << text->ketQuaNguoi1Thang;}
+        else { colorRed(); cout << text->ketQuaNguoi2Thang; }
         colorDefault();
         cout << "  +------------------------------------------+\n";
-        cout << "  |   Press Y to exit, any key to continue.  |\n";
+        cout << text->thoatHoacTiepTuc;
         cout << "  +------------------------------------------+\n";
         exitKey = tolower(_getch());
         system("cls");
@@ -270,13 +412,13 @@ void playWithPlayerSpeedMode() {
         int i = 0, choiceP1 = 0, choiceP2 = 0, result;
         colorYellow();
         cout<< "  +------------------------------------------+\n";
-        cout<< "  |         PLAY WITH ANOTHER PLAYER         |\n";
-        cout<< "  |         ******(SPEED MODE)******         |\n";
+        cout << text->choiVoiNguoiKhac;
+        cout << text->cheDoTangToc;
         cout<< "  +------------------------------------------+\n";
         colorGreen();
-        cout<< "  | P1: [1]Rock [2]Paper [3]Scissors         |\n";
+        cout << text->luaChonCuaNguoiChoi1;
         colorRed();
-        cout<< "  | P2: [7]Rock [8]Paper [9]Scissors         |\n";
+        cout << text->luaChonCuaNguoiChoi2;
         cout<< "  +------------------------------------------+\n";
         colorDefault();
         cout << "     (\\___/)              (\\___/)\n";
@@ -306,7 +448,7 @@ void playWithPlayerSpeedMode() {
             result = 0;
             cout << "  +------------------------------------------+\n";
             colorYellow();
-            cout << "  |           Result: Draw                   |\n";
+            cout << text->ketQuaHoa;
             colorDefault();
             cout << "  +------------------------------------------+\n";
         }
@@ -314,7 +456,7 @@ void playWithPlayerSpeedMode() {
             result = 1;
             cout << "  +------------------------------------------+\n";
             colorGreen();
-            cout << "  |           Result: Player 1 wins!         |\n";
+            cout << text->ketQuaNguoi1Thang;
             colorDefault();
             cout << "  +------------------------------------------+\n";
         }
@@ -322,7 +464,7 @@ void playWithPlayerSpeedMode() {
             result = 2;
             cout << "  +------------------------------------------+\n";
             colorRed();
-            cout << "  |           Result: Player 2 wins!         |\n";
+            cout << text->ketQuaNguoi2Thang;
             colorDefault();
             cout << "  +------------------------------------------+\n";
         }
@@ -340,13 +482,19 @@ void playWithPlayerSpeedMode() {
         colorDefault();
         printTwoIcons(choiceP1, choiceP2 - 6);
         cout << "  +------------------------------------------+\n";
-        if (result == 0) { colorYellow(); cout << "  |           Result: Draw                   |\n"; }
-        else if (result == 1) { colorGreen(); cout << "  |           Result: Player 1 wins!         |\n"; }
-        else { colorRed(); cout << "  |           Result: Player 2 wins!         |\n"; }
+        if (result == 0) { colorYellow();
+         cout << text->ketQuaHoa;
+          }
+        else if (result == 1) { colorGreen();
+         cout << text->ketQuaNguoi1Thang;
+          }
+        else { colorRed();
+         cout << text->ketQuaNguoi2Thang;
+ }
         colorDefault();
         }
         cout << "  +------------------------------------------+\n";
-        cout << "  |   Press Y to exit, any key to continue.  |\n";
+        cout << text->thoatHoacTiepTuc;
         cout << "  +------------------------------------------+\n";
         exitKey = tolower(_getch());
         system("cls");
@@ -358,30 +506,30 @@ void gameInstructions(){
     do{
         colorBlue();
         cout << "  +--------------------------------------------------+\n";
-        cout << "  |                  GAME INSTRUCTIONS               |\n";
+        cout << text->huongDanChoiGame;
         cout << "  +--------------------------------------------------+\n";
         colorYellow();
-        cout << "  |          ROCK - PAPER - SCISSORS RULES:          |\n";
+        cout << text->quyTacChoi;
         colorGreen();
-        cout << "  |          Rock        beats      Scissors         |\n";
-        cout << "  |          Scissors    beats      Paper            |\n";
-        cout << "  |          Paper       beats      Rock             |\n";
+        cout << text->daThangKeo;
+        cout << text->keoThangGiay;
+        cout << text->giayThangDa;
         colorBlue();
         cout << "  +--------------------------------------------------+\n";
         colorYellow();
-        cout << "  |  GAME MODES:                                     |\n";
+        cout << text->cheDoChoi;
         colorGreen();
-        cout << "  |  [1] Play with Computer                          |\n";
-        cout << "  |  [2] Play with Another Player (Normal Mode)      |\n";
-        cout << "  |      Player 1: 1-3   |   Player 2: 7-9           |\n";
+        cout << text->cheDoChoiCungMayTinh;
+        cout << text->cheDoChoiCungNguoiKhacCheDoThuong;
+        cout << text->nguoiChoi1Tu1Den3NguoiChoi2Tu7Den9Thuong;
         colorRed();
-        cout << "  |  [3] Play with Another Player (Speed Mode)       |\n";
-        cout << "  |      *Fast reaction decides the winner*          |\n";
-        cout << "  |      Player 1: 1-3   |   Player 2: 7-9           |\n";
+        cout << text->cheDoChoiCungNguoiKhacCheDoTangToc;
+        cout << text->phanXaNhanhQuyetDinhChienThang;
+        cout << text->nguoiChoi1Tu1Den3NguoiChoi2Tu7Den9TangToc;
         colorBlue();
         cout << "  +--------------------------------------------------+\n";
         colorGreen();
-        cout << "  |   Press Y to return to the main menu.            |\n";
+        cout << text->nhanPhimYDeQuayLai;
         cout << "  +--------------------------------------------------+\n";
         colorDefault();
 
@@ -425,9 +573,9 @@ void countdown() {
 void computerThinking() {
     colorBlue();
     cout << "\n  +------------------------------------------+\n";
-    cout<<"  | Computer thinking";
+     cout << text->mayTinhSuyNghi;
     for (int i = 0; i < 5; i++) { cout << "."; Sleep(200); }
-    cout<< " Done!             |\n";
+    cout << text->xong;
     cout<< "  +------------------------------------------+\n";
     colorDefault();
 }
@@ -484,4 +632,21 @@ void printTwoIcons(int a, int b) {
     }
     for (int i = 0; i < 6; i++)
         cout << "  " << icon1[i] << "   " << icon2[i] << endl;
+}
+void chooseLanguage() {
+    int c;
+    colorGreen();
+    cout << "1. Tieng Viet\n";
+    colorRed();
+    cout << "2. English\n";
+    cout << "Choose language: ";cin >> c;
+
+    if (c == 1) {
+        currentLang = VIETNAMESE;
+        text = &langVI;
+    }
+    else {
+        currentLang = ENGLISH;
+        text = &langEN;
+    }
 }
