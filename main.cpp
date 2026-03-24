@@ -44,7 +44,6 @@ void printTwoIcons(int a, int b);
 //language
 void chooseLanguage();
 
-//create datatype
 enum Language {
     VIETNAMESE,
     ENGLISH
@@ -52,130 +51,140 @@ enum Language {
 
 Language currentLang = ENGLISH;
 
+// cau truc cho ngon ngu
 struct GameText {
-    string tieuDeKeoBuaBao;
-    string luaChon;
-    string nguoiChoi1;
-    string nguoiChoi2;
-    string choiVoiMay;
-    string luaChonKeoBuaBao;
-    string hoa;
-    string banThang;
-    string mayTinhThang;
-    string thoatHoacTiepTuc;
-    string choiVoiNguoiKhac;
-    string cheDoThuong;
-    string luaChonCuaNguoiChoi1;
-    string luaChonCuaNguoiChoi2;
-    string cheDoTangToc;
-    string huongDanChoiGame;
-    string quyTacChoi;
-    string daThangKeo;
-    string keoThangGiay;
-    string giayThangDa;
-    string cheDoChoi;
-    string nguoiChoi1Tu1Den3NguoiChoi2Tu7Den9Thuong;
-    string phanXaNhanhQuyetDinhChienThang;
-    string nhanPhimYDeQuayLai;
-    string cheDoChoiCungMayTinh;
-    string cheDoChoiCungNguoiKhacCheDoThuong;
-    string cheDoChoiCungNguoiKhacCheDoTangToc;
-    string nguoiChoi1Tu1Den3NguoiChoi2Tu7Den9TangToc;
-    string ketQuaHoa;
-    string ketQuaNguoi1Thang;
-    string ketQuaNguoi2Thang;
-    string ban;
-    string mayTinh;
-    string mayTinhSuyNghi;
-    string xong;
+    string tieuDeKeoBuaBao;                              //1
+    string luaChon;                                      //2
+    string nguoiChoi1;                                   //3
+    string nguoiChoi2;                                   //4
+    string choiVoiMay;                                   //5
+    string luaChonKeoBuaBao;                             //6
+    string hoa;                                          //7
+    string banThang;                                     //8
+    string mayTinhThang;                                 //9
+    string thoatHoacTiepTuc;                             //10
+    string choiVoiNguoiKhac;                             //11
+    string cheDoThuong;                                  //12
+    string luaChonCuaNguoiChoi1;                         //13
+    string luaChonCuaNguoiChoi2;                         //14
+    string cheDoTangToc;                                 //15
+    string huongDanChoiGame;                             //16
+    string quyTacChoi;                                   //17
+    string daThangKeo;                                   //18
+    string keoThangGiay;                                 //19
+    string giayThangDa;                                  //20
+    string cheDoChoi;                                    //21
+    string nguoiChoi1Tu1Den3NguoiChoi2Tu7Den9Thuong;     //22
+    string phanXaNhanhQuyetDinhChienThang;               //23
+    string nhanPhimYDeQuayLai;                           //24
+    string cheDoChoiCungMayTinh;                         //25
+    string cheDoChoiCungNguoiKhacCheDoThuong;            //26
+    string cheDoChoiCungNguoiKhacCheDoTangToc;           //27
+    string nguoiChoi1Tu1Den3NguoiChoi2Tu7Den9TangToc;    //28
+    string ketQuaHoa;                                    //29
+    string ketQuaNguoi1Thang;                            //30
+    string ketQuaNguoi2Thang;                            //31
+    string ban;                                          //32
+    string mayTinh;                                      //33
+    string mayTinhSuyNghi;                               //34
+    string xong;                                         //35
+    string da;                                           //36
+    string giay;                                         //36
+    string keo;                                          //36
 
 };
-//
+// tieng viet
 GameText langVI = {
-    "  |       * DA       GIAY      KEO *       |\n",//1
+    "  |       * DA       GIAY      KEO *       |\n",           //1
     "  |   [1] Choi Voi May                     |\n"
     "  |   [2] Choi Voi Nguoi (Binh Thuong)     |\n"
     "  |   [3] Choi Voi Nguoi(Tang Toc)         |\n"
     "  |   [8] Doi Ngon Ngu                     |\n"
     "  |   [9] Huong Dan Choi                   |\n"
-    "  |   [0] Thoat                            |\n",//2
-    "  |   Nguoi choi So 1                        |",//3
-    "  |   Nguoi choi So 2                        |",//4
-    "  |   CHOI VOI MAY                           |\n",//5
-    "  |      [1] DA [2] GIAY [3] KEO             |\n",//6
-    "  |         KET QUA: HOA                     |\n",//7
-    "  |         KET QUA: BAN THANG               |\n",//8
-    "  |         KET QUA: MAY TINH THANG          |\n",//9
-    "  |Nhan Phim Y De Thoat, Bat Ki De Tiep Tuc  |\n",//10
-    "  |        Choi Voi Nguoi Choi Khac          |\n",//11
-    "  |        ******Che Do Thuong******         |\n",//12
-    "  | Nguoi Choi 1: [1]DA [2]GIAY [3]KEO       |\n",//13
-    "  | Nguoi Choi 2: [7]DA [8]GIAY [9]KEO       |\n",//14
-    "  |        ******Che Do Tang Toc******       |\n",//15
-    "  |            HUONG DAN CHOI GAME                   |\n",//16
-    "  |        QUY TAC CHOI DA - GIAY - KEO:             |\n",//17
-    "  |          DA       Thang      KEO                 |\n",//18
-    "  |          KEO      Thang      GIAY                |\n",//19
-    "  |          GIAY     Thang      DA                  |\n",//20
-    "  |  CHE DO CHOI:                                    |\n",//21
-    "  |   Nguoi Choi 1: 1-3  |  Nguoi Choi 2: 7-9        |\n",//22
-    "  |  *Phan Xa Nhanh Quyet Dinh Chien Thang*          |\n",//23
-    "  |   Nhan Phim Y De Quay Lai Menu Chinh.            |\n",
-    "  |  [1] Choi Cung May Tinh                          |\n",
-    "  |  [2] Choi Cung Nguoi Khac (Che Do Thuong)        |\n",
-    "  |  [3] Choi Cung Nguoi Khac (Che Do Tang Toc)      |\n",
-    "  |   Nguoi Choi 1: 1-3  |  Nguoi Choi 2: 7-9        |\n",
-    "  |         KET QUA: HOA                     |\n",
-    "  |         KET QUA: NGUOI CHOI 1 THANG      |\n",
-    "  |         KET QUA: NGUOI CHOI 2 THANG      |\n",
-    "  |     Ban: " ,
-    " May Tinh: " ,
-    "  | May Tinh Suy Nghi",
-    " Xong             |\n",
+    "  |   [0] Thoat                            |\n",           //2
+    "  |   Nguoi choi So 1                        |",           //3
+    "  |   Nguoi choi So 2                        |",           //4
+    "  |   CHOI VOI MAY                           |\n",         //5
+    "  |      [1] DA [2] GIAY [3] KEO             |\n",         //6
+    "  |         KET QUA: HOA                     |\n",         //7
+    "  |         KET QUA: BAN THANG               |\n",         //8
+    "  |         KET QUA: MAY TINH THANG          |\n",         //9
+    "  |Nhan Phim Y De Thoat, Bat Ki De Tiep Tuc  |\n",         //10
+    "  |        Choi Voi Nguoi Choi Khac          |\n",         //11
+    "  |        ******Che Do Thuong******         |\n",         //12
+    "  | Nguoi Choi 1: [1]DA [2]GIAY [3]KEO       |\n",         //13
+    "  | Nguoi Choi 2: [7]DA [8]GIAY [9]KEO       |\n",         //14
+    "  |        ******Che Do Tang Toc******       |\n",         //15
+    "  |            HUONG DAN CHOI GAME                   |\n", //16
+    "  |        QUY TAC CHOI DA - GIAY - KEO:             |\n", //17
+    "  |          DA       Thang      KEO                 |\n", //18
+    "  |          KEO      Thang      GIAY                |\n", //19
+    "  |          GIAY     Thang      DA                  |\n", //20
+    "  |  CHE DO CHOI:                                    |\n", //21
+    "  |   Nguoi Choi 1: 1-3  |  Nguoi Choi 2: 7-9        |\n", //22
+    "  |  *Phan Xa Nhanh Quyet Dinh Chien Thang*          |\n", //23
+    "  |   Nhan Phim Y De Quay Lai Menu Chinh.            |\n", //24
+    "  |  [1] Choi Cung May Tinh                          |\n", //25
+    "  |  [2] Choi Cung Nguoi Khac (Che Do Thuong)        |\n", //26
+    "  |  [3] Choi Cung Nguoi Khac (Che Do Tang Toc)      |\n", //27
+    "  |   Nguoi Choi 1: 1-3  |  Nguoi Choi 2: 7-9        |\n", //28
+    "  |         KET QUA: HOA                     |\n",         //29
+    "  |         KET QUA: NGUOI CHOI 1 THANG      |\n",         //30
+    "  |         KET QUA: NGUOI CHOI 2 THANG      |\n",         //31
+    "  |     Ban: " ,                                           //32
+    " May Tinh: " ,                                             //33
+    "  | May Tinh Suy Nghi",                                    //34
+    " Xong             |\n",                                    //35
+    "DA",                                                       //36
+    "GIAY",                                                     //37
+    "KEO"                                                       //38
 
 };
-
+// tieng anh
 GameText langEN = {
-    "  |        * ROCK  PAPER  SCISSORS *       |\n",
+    "  |        * ROCK  PAPER  SCISSORS *       |\n",           //1
     "  |    [1] Play with computer              |\n"
     "  |    [2] Play with another player(Normal)|\n"
     "  |    [3] Play with another player(Speed) |\n"
     "  |    [8] Choose Language                 |\n"
     "  |    [9] Game instructions               |\n"
-    "  |    [0] Exit                            |\n",
-    "  |    Player 1                              |",
-    "  |    Player 2                              |",
-    "  |    PLAY WITH COMPUTER                    |\n",
-    "  |    [1]Rock [2]Paper [3]Scissors          |\n",
-    "  |          Result: Draw                    |\n",
-    "  |          Result: You Win                 |\n",
-    "  |          Result: Computer Win            |\n",
-    "  |   Press Y to exit, any key to continue.  |\n",
-    "  |         PLAY WITH ANOTHER PLAYER         |\n",
-    "  |         ******NORMAL MODE******          |\n",
-    "  | PLAYER 1: [1]Rock [2]Paper [3]Scissors   |\n",
-    "  | PLAYER 2: [7]Rock [8]Paper [9]Scissors   |\n",
-    "  |         ******SPEED MODE******           |\n",
-    "  |            GAME INSTRUCTIONS                     |\n",
-    "  |        ROCK - PAPER - SCISSORS RULES:            |\n",
-    "  |         Rock        beats      Scissors          |\n",
-    "  |         Scissors    beats      Paper             |\n",
-    "  |         Paper       beats      Rock              |\n",
-    "  |  GAME MODES:                                     |\n",
-    "  |      Player 1: 1-3   |   Player 2: 7-9           |\n",
-    "  |      *Fast reaction decides the winner*          |\n",
-    "  |   Press Y to return to the main menu.            |\n",
-    "  |  [1] Play with Computer                          |\n",
-    "  |  [2] Play with Another Player (Normal Mode)      |\n",
-    "  |  [3] Play with Another Player (Speed Mode)       |\n",
-    "  |      Player 1: 1-3   |   Player 2: 7-9           |\n",
-    "  |          Result: Draw                    |\n",
-    "  |          Result: Player 1 wins!          |\n",
-    "  |          Result: Player 2 wins!          |\n",
-    "  |     You: ",
-    " Computer: ",
-    "  | Computer thinking",
-    " Done!             |\n",
+    "  |    [0] Exit                            |\n",           //2
+    "  |    Player 1                              |",           //3
+    "  |    Player 2                              |",           //4
+    "  |    PLAY WITH COMPUTER                    |\n",         //5
+    "  |    [1]Rock [2]Paper [3]Scissors          |\n",         //6
+    "  |          Result: Draw                    |\n",         //7
+    "  |          Result: You Win                 |\n",         //8
+    "  |          Result: Computer Win            |\n",         //9
+    "  |   Press Y to exit, any key to continue.  |\n",         //10
+    "  |         PLAY WITH ANOTHER PLAYER         |\n",         //11
+    "  |         ******NORMAL MODE******          |\n",         //12
+    "  | PLAYER 1: [1]Rock [2]Paper [3]Scissors   |\n",         //13
+    "  | PLAYER 2: [7]Rock [8]Paper [9]Scissors   |\n",         //14
+    "  |         ******SPEED MODE******           |\n",         //15
+    "  |            GAME INSTRUCTIONS                     |\n", //16
+    "  |        ROCK - PAPER  ytujmgk ujggkh jm- SCISSORS RULES:            |\n", //17
+    "  |         Rock        beats      Scissors          |\n", //18
+    "  |         Scissors    beats      Paper             |\n", //19
+    "  |         Paper       beats      Rock              |\n", //20
+    "  |  GAME MODES:                                     |\n", //21
+    "  |      Player 1: 1-3   |   Player 2: 7-9           |\n", //22
+    "  |      *Fast reaction decides the winner*          |\n", //23
+    "  |   Press Y to return to the main menu.            |\n", //24
+    "  |  [1] Play with Computer                          |\n", //25
+    "  |  [2] Play with Another Player (Normal Mode)      |\n", //26
+    "  |  [3] Play with Another Player (Speed Mode)       |\n", //27
+    "  |      Player 1: 1-3   |   Player 2: 7-9           |\n", //28
+    "  |          Result: Draw                    |\n",         //29
+    "  |          Result: Player 1 wins!          |\n",         //30
+    "  |          Result: Player 2 wins!          |\n",         //31
+    "  |     You: ",                                            //32
+    " Computer: ",                                              //33
+    "  | Computer thinking",                                    //34
+    " Done!             |\n",                                   //35
+    "ROCK",                                                     //36
+    "PAPER",                                                    //37
+    "SCISSORS"                                                  //38
 
 };
 
@@ -276,6 +285,7 @@ int getPlayerChoice1() {
         c = _getch();
 
         if (c < '7' || c > '9') {
+            colorRed();
             cout << "\r"<< text-> nguoiChoi2;
         }
 
@@ -310,7 +320,7 @@ void updateScore(int result) {
 }
 
 void playWithComputer() {
-    string items[3] = {"Rock", "Paper", "Scissors"};
+    string items[3] = {text->da, text->giay, text->keo};
     char exitKey;
     do {
         colorRed();
@@ -331,7 +341,8 @@ void playWithComputer() {
         colorRed();
         cout << text->mayTinh<< computerScore;
         colorBlue();
-        cout << "       |\n  +------------------------------------------+\n";
+        cout << "     |\n";
+        cout << "  +------------------------------------------+\n";
         colorDefault();
         int playerChoice = getPlayerChoice();
         int computerChoice = getComputerChoice();
@@ -339,7 +350,7 @@ void playWithComputer() {
         updateScore(result);
         computerThinking();
         colorGreen();
-        cout << "\n  " << items[playerChoice - 1];
+        cout << "\n           " << items[playerChoice - 1];
         colorDefault();
         cout << "   vs   ";
         colorRed();
@@ -361,7 +372,7 @@ void playWithComputer() {
 
 void playWithPlayerNormalMode() {
     char exitKey;
-    string items[3] = {"Rock", "Paper", "Scissors"};
+    string items[3] = {text->da, text->giay, text->keo};
     do {
         colorYellow();
         cout<< "  +------------------------------------------+\n";
@@ -385,7 +396,7 @@ void playWithPlayerNormalMode() {
         countdown();
 
         colorGreen();
-        cout<< "\n    " << items[player1 - 1];
+        cout<< "\n             " << items[player1 - 1];
         colorDefault();
         cout<< "   vs   ";
         colorRed();
@@ -407,7 +418,7 @@ void playWithPlayerNormalMode() {
 
 void playWithPlayerSpeedMode() {
     char exitKey;
-    string items[3] = {"Rock", "Paper", "Scissors"};
+    string items[3] = {text->da, text->giay, text->keo};
     do {
         int i = 0, choiceP1 = 0, choiceP2 = 0, result;
         colorYellow();
@@ -427,7 +438,7 @@ void playWithPlayerSpeedMode() {
         cout<< "  +------------------------------------------+\n";
         while(i <= 100){
             switch(i){
-                 case 5: cout<< " 1__...";break;
+                 case 5: cout<< "              1__...";break;
                  case 50: cout<< "2__...";break;
                  case 95: cout<< "3__....\n";break;
             }
@@ -470,11 +481,8 @@ void playWithPlayerSpeedMode() {
         }
         if(choiceP1 != 0 && choiceP2 != 0){
         result = getResult(choiceP1, choiceP2);
-
-        countdown();
-
         colorGreen();
-        cout<< "\n    " << items[choiceP1 - 1];
+        cout<< "\n             " << items[choiceP1 - 1];
         colorDefault();
         cout<< "   vs   ";
         colorRed();
@@ -539,7 +547,6 @@ void gameInstructions(){
     system("cls");
 }
 
-//text color
 void colorRed()  {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
 }
@@ -574,7 +581,7 @@ void computerThinking() {
     colorBlue();
     cout << "\n  +------------------------------------------+\n";
      cout << text->mayTinhSuyNghi;
-    for (int i = 0; i < 5; i++) { cout << "."; Sleep(200); }
+    for (int i = 0; i < 5; i++) { cout << "."; Sleep(150); }
     cout << text->xong;
     cout<< "  +------------------------------------------+\n";
     colorDefault();
@@ -631,15 +638,22 @@ void printTwoIcons(int a, int b) {
         icon2[5] = "  /_| |_\\";
     }
     for (int i = 0; i < 6; i++)
-        cout << "  " << icon1[i] << "   " << icon2[i] << endl;
+        cout << "        " << icon1[i] << "   " << icon2[i] << endl;
 }
 void chooseLanguage() {
     int c;
     colorGreen();
-    cout << "1. Tieng Viet\n";
+    cout << "  +------------------------------------------+\n";
+    cout << "  |          1. Tieng Viet                   |\n";
+    cout << "  +------------------------------------------+\n";
     colorRed();
-    cout << "2. English\n";
-    cout << "Choose language: ";cin >> c;
+    cout << "  +------------------------------------------+\n";
+    cout << "  |          2. English                      |\n";
+    cout << "  +------------------------------------------+\n";
+    colorYellow();
+    cout << "  |       Choose language:                   |\n";
+    cout << "  +------------------------------------------+\n";
+    cin >> c;
 
     if (c == 1) {
         currentLang = VIETNAMESE;
