@@ -163,7 +163,7 @@ GameText langEN = {
     "  | PLAYER 2: [7]Rock [8]Paper [9]Scissors   |\n",         //14
     "  |         ******SPEED MODE******           |\n",         //15
     "  |            GAME INSTRUCTIONS                     |\n", //16
-    "  |        ROCK - PAPER  ytujmgk ujggkh jm- SCISSORS RULES:            |\n", //17
+    "  |        ROCK - PAPER - SCISSORS RULES:            |\n", //17
     "  |         Rock        beats      Scissors          |\n", //18
     "  |         Scissors    beats      Paper             |\n", //19
     "  |         Paper       beats      Rock              |\n", //20
